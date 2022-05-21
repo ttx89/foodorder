@@ -1,17 +1,21 @@
-package jac.fsd02.foodorder.model;
+package jac.fsd02.foodorder.entity;
 
 
+import jac.fsd02.foodorder.model.OrderStatus;
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
+@Table(name="order")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
-public class Order {
-
+public class OrderEO {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
     private Long id;
     private Long userId;
     private Double itemTotalPrice;
