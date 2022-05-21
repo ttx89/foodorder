@@ -3,6 +3,8 @@ package jac.fsd02.foodorder.entity;
 
 import jac.fsd02.foodorder.model.OrderStatus;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -25,4 +27,11 @@ public class OrderEO {
     private Date orderDate;
     private Long paymentId;
     private OrderStatus orderStatus;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name="paymentId")
+    private PaymentEO paymentEO;
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private UserEO userEO;
 }

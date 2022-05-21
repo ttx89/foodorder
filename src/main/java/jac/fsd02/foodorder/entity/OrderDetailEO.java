@@ -1,6 +1,8 @@
 package jac.fsd02.foodorder.entity;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -18,5 +20,9 @@ public class OrderDetailEO {
     private Long itemId;
     private Integer quantity;
     private Double discount;
+    @ManyToOne
+    @JoinColumn(name = "itemId", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private ItemEO itemEO;
 
 }

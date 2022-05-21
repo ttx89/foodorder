@@ -24,4 +24,7 @@ public class UserEO {
     private String userName;
     private String password;
     private UserType userType;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name="cityId")
+    private CityEO cityEO;
 }
