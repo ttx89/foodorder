@@ -17,12 +17,15 @@ public class OrderDetailEO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
     private Long id;
-    private Long itemId;
     private Integer quantity;
     private Double discount;
     @ManyToOne
-    @JoinColumn(name = "itemId", nullable = false)
+    @JoinColumn(name = "item_Id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private ItemEO itemEO;
+    @ManyToOne
+    @JoinColumn(name = "order_Id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private OrderEO orderEO;
 
 }

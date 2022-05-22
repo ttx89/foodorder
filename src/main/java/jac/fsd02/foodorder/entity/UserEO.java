@@ -19,12 +19,11 @@ public class UserEO {
     private String name;
     private String email;
     private String phoneNumber;
-    private Long cityId;
     private String address;
     private String userName;
     private String password;
     private UserType userType;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="cityId")
+    @JoinColumn(name="city_Id")
     private CityEO cityEO;
 }

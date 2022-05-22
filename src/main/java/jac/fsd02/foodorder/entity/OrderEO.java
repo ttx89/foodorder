@@ -19,19 +19,17 @@ public class OrderEO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
     private Long id;
-    private Long userId;
     private Double itemTotalPrice;
     private Double tax;
     private Double shippingFee;
     private Double orderTotalPrice;
     private Date orderDate;
-    private Long paymentId;
     private OrderStatus orderStatus;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="paymentId")
+    @JoinColumn(name="payment_Id")
     private PaymentEO paymentEO;
     @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "user_Id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private UserEO userEO;
 }

@@ -18,14 +18,13 @@ public class ItemEO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
     private Long id;
-    private Long categoryId;
     private String itemName;
     private Double itemPrice;
     private String itemSrc;
     private String description;
     private Active active;
     @ManyToOne
-    @JoinColumn(name = "categoryId", nullable = false)
+    @JoinColumn(name = "category_Id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private CategoryEO categoryEO;
 
