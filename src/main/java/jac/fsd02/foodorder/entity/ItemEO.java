@@ -1,6 +1,7 @@
 package jac.fsd02.foodorder.entity;
 
 import jac.fsd02.foodorder.model.Active;
+import jac.fsd02.foodorder.model.Category;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -23,9 +24,6 @@ public class ItemEO {
     private String itemSrc;
     private String description;
     private Active active;
-    @ManyToOne
-    @JoinColumn(name = "category_Id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private CategoryEO categoryEO;
+    private Category category;
 
 }
