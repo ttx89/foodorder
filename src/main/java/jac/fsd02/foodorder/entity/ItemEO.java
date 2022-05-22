@@ -25,7 +25,7 @@ public class ItemEO {
     private Active active;
     @ManyToOne
     @JoinColumn(name = "category_Id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     private CategoryEO categoryEO;
 
 }
