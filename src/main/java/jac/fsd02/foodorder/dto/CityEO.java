@@ -1,11 +1,11 @@
-package jac.fsd02.foodorder.entity;
+package jac.fsd02.foodorder.dto;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 @Entity
-@Table(name="city")
+@Table(name="tbl_city")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

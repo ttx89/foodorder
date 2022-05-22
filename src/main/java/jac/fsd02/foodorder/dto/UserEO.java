@@ -1,4 +1,4 @@
-package jac.fsd02.foodorder.entity;
+package jac.fsd02.foodorder.dto;
 
 import jac.fsd02.foodorder.model.UserType;
 import lombok.*;
@@ -6,7 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
+@Table(name="tbl_user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

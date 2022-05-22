@@ -1,4 +1,4 @@
-package jac.fsd02.foodorder.entity;
+package jac.fsd02.foodorder.dto;
 
 import jac.fsd02.foodorder.model.PaymentStatus;
 import jac.fsd02.foodorder.model.PaymentType;
@@ -7,7 +7,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name="payment")
+@Table(name="tbl_payment")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
