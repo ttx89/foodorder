@@ -1,4 +1,4 @@
-package jac.fsd02.foodorder.entity;
+package jac.fsd02.foodorder.dto;
 
 
 import jac.fsd02.foodorder.model.OrderStatus;
@@ -9,7 +9,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import java.util.Date;
 @Entity
-@Table(name="order")
+@Table(name="tbl_order")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -27,9 +27,9 @@ public class OrderEO {
     private OrderStatus orderStatus;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="payment_Id")
-    private PaymentEO paymentEO;
+    private PaymentEO payment;
     @ManyToOne
     @JoinColumn(name = "user_Id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private UserEO userEO;
+    private UserEO user;
 }

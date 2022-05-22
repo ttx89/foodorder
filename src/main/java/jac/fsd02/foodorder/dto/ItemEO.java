@@ -1,4 +1,4 @@
-package jac.fsd02.foodorder.entity;
+package jac.fsd02.foodorder.dto;
 
 import jac.fsd02.foodorder.model.Active;
 import jac.fsd02.foodorder.model.Category;
@@ -9,7 +9,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 
 @Entity
-@Table(name="item")
+@Table(name="tbl_item")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -24,6 +24,10 @@ public class ItemEO {
     private String itemSrc;
     private String description;
     private Active active;
-    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    private CategoryEO category;
 
 }

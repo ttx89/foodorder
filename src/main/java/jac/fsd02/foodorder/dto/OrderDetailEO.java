@@ -1,4 +1,4 @@
-package jac.fsd02.foodorder.entity;
+package jac.fsd02.foodorder.dto;
 
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
@@ -7,7 +7,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 
 @Entity
-@Table(name="orderDetail")
+@Table(name="tbl_order_detail")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,10 +22,10 @@ public class OrderDetailEO {
     @ManyToOne
     @JoinColumn(name = "item_Id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private ItemEO itemEO;
+    private ItemEO item;
     @ManyToOne
     @JoinColumn(name = "order_Id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private OrderEO orderEO;
+    private OrderEO order;
 
 }
