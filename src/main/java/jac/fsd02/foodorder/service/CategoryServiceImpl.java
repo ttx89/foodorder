@@ -3,6 +3,7 @@ package jac.fsd02.foodorder.service;
 import jac.fsd02.foodorder.dto.CategoryEO;
 import jac.fsd02.foodorder.model.Category;
 import jac.fsd02.foodorder.repository.CategoryRepository;
+import jac.fsd02.foodorder.utils.Converter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,11 +38,7 @@ public class CategoryServiceImpl implements CategoryService{
 
         List<Category> categoryList = new ArrayList<>();
         for(CategoryEO categoryEO: categoryEOList) {
-            //convert to Category
-            Category category = new Category();
-            category.setId(categoryEO.getId());
-            category.setCategoryName(categoryEO.getCategoryName());
-            category.setCategorySrc(categoryEO.getCategorySrc());
+            Category category = Converter.convCategoryEOToCategory(categoryEO);
             categoryList.add(category);
         }
 
