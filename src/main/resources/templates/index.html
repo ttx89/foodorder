@@ -1,19 +1,89 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Welcome to CodeJava Home</title>
-	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Food Order</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
-	<div class="container text-center">
-		<h1>Welcome to CodeJava.net</h1>
-		<h3><a th:href="@{/itemList}">ItemList</a></h3>
-		<h3><a th:href="@{/register}">Register</a></h3>
-		<h3><a th:href="@{/login}">Login</a></h3>
-	</div>
-	
+
+<div class="container" my-2>
+    <h3>HOME</h3>
+    <table style="..." class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Category</th>
+        </tr>
+        </thead>
+        <tr>
+            <td th:text="${categoryList[0].categoryName}" onclick=queryItemsByCategoryId(1);></td>
+            <td th:text="${categoryList[1].categoryName}" onclick=queryItemsByCategoryId(2);></td>
+            <td th:text="${categoryList[2].categoryName}" onclick=queryItemsByCategoryId(3);></td>
+            <td th:text="${categoryList[3].categoryName}" onclick=queryItemsByCategoryId(4);></td>
+        </tr>
+    </table>
+
+
+    <table id="itemList" border="1">
+            <script type="text/javascript">
+                <!--    网页打开时，默认加载第一个Category的food-->
+                $(function (){
+                    queryItemsByCategoryId(1);
+                })
+            </script>
+    </table>
+
+
+</div>
+
 </body>
+
+
+<script th:inline = "javascript"  type="text/javascript">
+    function queryItemsByCategoryId(categoryId) {
+        // alert(categoryId);
+        $.ajax({
+            type:"get",
+            url:"/getItemListByCategoryId/"+categoryId,
+            async:true,
+            dataType:"json",
+            success:function (data){
+                let str = '';
+                //query出来的结果拼成表格
+                $. each (data, function (index, element) {
+                    str = str +
+                        "<tr>" +
+                            "<td>"+element.id+"</td>" +
+                            "<td>"+element.category.categoryName+"</td>" +
+                            "<td>"+element.itemName+"</td>" +
+                            "<td>"+element.itemPrice+"</td>" +
+                            "<td><img src='"+element.itemSrc+"'/></td>" +
+                            // "<td>"+element.itemSrc+"</td>" +
+                            "<td>"+element.description+"</td>" +
+                            "<td>"+element.active+"</td>" +
+                            "<td>"+"<a href=/queryItem/"+element.id+">Order Now</a>" + "</td>"+
+                            // "<td>"+"<a href=/queryItem/"+element.id+">Order Now</a>" + "</td>"+
+                        "</tr>"
+                });
+                //表格放进 id = itemList的表里
+                $('#itemList').html(str);
+                 },
+            error:function (){
+                alert("333333333333333333");
+            }
+        })
+    }
+
+    // <a th:href="/queryItem/{itemId}(id=${element.id})" className="btn btn-primary">Update</a>
+
+</script>
 </html>
