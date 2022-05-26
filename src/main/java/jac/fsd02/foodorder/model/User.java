@@ -17,6 +17,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
     private Long id;
     private String name;
+    @Column(nullable = false, unique = true, length = 45)
     private String email;
     private String phoneNumber;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -24,6 +25,7 @@ public class User {
     private City city;
     private String address;
     private String userName;
+    @Column(nullable = false, length = 64)
     private String password;
     private UserType userType;
 }
