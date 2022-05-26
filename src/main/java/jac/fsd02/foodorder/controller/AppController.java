@@ -24,7 +24,7 @@ public class AppController {
 
     @GetMapping("/index2")
     public String viewHomePage() {
-        return "index2";
+        return "index";
     }
 
     @GetMapping("/register")

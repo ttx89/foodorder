@@ -16,10 +16,10 @@ public class CategoryControllerImpl implements CategoryController{
     CategoryService categoryService;
 
     @Override
-    @GetMapping("/")
+    @GetMapping("/userIndex")
     public String getCategoryList(Model model) {
         List<Category> categoryList = categoryService.getCategoryList();
         model.addAttribute("categoryList", categoryList);
-        return "index";
+        return "userIndex";
     }
 }
