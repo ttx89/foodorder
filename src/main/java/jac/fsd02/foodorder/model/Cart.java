@@ -18,17 +18,6 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-//    @OnDelete(action = OnDeleteAction.NO_ACTION)
-//    private UserEO user;
-
-//    @ManyToOne
-//    @JoinColumn(name = "item_id", nullable = false)
-//    @OnDelete(action = OnDeleteAction.NO_ACTION)
-//    private ItemEO item;
-
     private Long userId;
     private Long itemId;
     private String itemName;
