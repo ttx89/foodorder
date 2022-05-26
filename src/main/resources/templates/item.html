@@ -53,7 +53,6 @@
 
 <script th:inline = "javascript"  type="text/javascript">
     function addCart() {
-        let userId = "1"
         let itemId = $("#itemId").text();
         let itemName = $("#itemName").text();
         let quantity = $("#quantity").val();
@@ -63,7 +62,6 @@
             type:"POST",
             url:"/addCart",
             data:{
-                "userId":userId,
                 "itemId":itemId,
                 "itemName":itemName,
                 "quantity":quantity,

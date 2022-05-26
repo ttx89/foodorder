@@ -1,7 +1,5 @@
 package jac.fsd02.foodorder.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import jac.fsd02.foodorder.model.Cart;
 import jac.fsd02.foodorder.model.Item;
 import jac.fsd02.foodorder.service.CategoryService;
 import jac.fsd02.foodorder.service.ItemService;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class ItemControllerImpl implements ItemController {
@@ -27,15 +24,7 @@ public class ItemControllerImpl implements ItemController {
     @GetMapping("/queryItem/{itemId}")
     public String getItemById(@PathVariable(value = "itemId") Long itemId, Model model) {
         Item item = itemService.getItemById(itemId);
-//        ObjectMapper mapper = new ObjectMapper();
-//        Map<String, Object> data = mapper.convertValue(item, Map.class);
-//
-//        for (Map.Entry<String, Object> entry: data.entrySet()){
-//            System.out.println("key="+entry.getKey()+", value="+entry.getValue());
-//            System.out.println("-------------------------");
-//        }
         model.addAttribute("item", item);
-//        model.addAttribute("cart", new Cart());
         return "item";
     }
 
@@ -46,7 +35,4 @@ public class ItemControllerImpl implements ItemController {
         List<Item> itemList = itemService.getItemListByCategoryId(categoryId);
         return itemList;
     }
-
-
-
 }
