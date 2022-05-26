@@ -24,10 +24,7 @@ public class CategoryServiceImpl implements CategoryService{
         Category category = new Category();
         if (optCategoryEO.isPresent()) {
             CategoryEO categoryEO = optCategoryEO.get();
-            //convert to Category
-            category.setId(categoryEO.getId());
-            category.setCategoryName(categoryEO.getCategoryName());
-            category.setCategorySrc(categoryEO.getCategorySrc());
+            Converter.convCategoryEOToCategory(categoryEO);
         }
         return category;
     }

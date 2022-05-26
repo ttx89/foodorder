@@ -3,6 +3,7 @@ package jac.fsd02.foodorder.model;
 import lombok.*;
 
 
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,5 +16,6 @@ public class OrderDetail {
     private Long itemId;
     private Integer quantity;
     private Double discount;
+
 
 }

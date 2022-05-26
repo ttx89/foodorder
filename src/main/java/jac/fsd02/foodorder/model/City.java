@@ -14,5 +14,5 @@ public class City {
     private Long id;
     private String cityName;
     private Double shippingFee;
-    private Date shippingDate;
+    private String shippingTime;    //
 }

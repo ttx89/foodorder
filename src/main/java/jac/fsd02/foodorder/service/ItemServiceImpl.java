@@ -1,7 +1,6 @@
 package jac.fsd02.foodorder.service;
 
 import jac.fsd02.foodorder.dto.ItemEO;
-import jac.fsd02.foodorder.model.Category;
 import jac.fsd02.foodorder.model.Item;
 import jac.fsd02.foodorder.repository.ItemRepository;
 import jac.fsd02.foodorder.utils.Converter;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -28,6 +28,17 @@ public class ItemServiceImpl implements ItemService{
             itemList.add(item);
         }
         return itemList;
+    }
+
+    @Override
+    public Item getItemById(Long itemId) {
+        Optional<ItemEO> optItemEO = itemRepository.findById(itemId);
+        Item item = new Item();
+        if (optItemEO.isPresent()) {
+            ItemEO itemEO = optItemEO.get();
+            item = Converter.convItemEOToItem(itemEO);
+        }
+        return item;
     }
 
 

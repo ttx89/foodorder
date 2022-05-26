@@ -28,4 +28,6 @@ public class OrderDetailEO {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private OrderEO order;
 
+
+
 }
