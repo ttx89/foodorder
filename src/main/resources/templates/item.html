@@ -30,14 +30,16 @@
                 </thead>
                 <tr>
                     <!--            和实体类一致-->
-                    <td id="itemId" th:text="${data.get('id')}"></td>
-                    <td id="itemName" th:text="${data.get('itemName')}"></td>
+                    <td id="itemId" th:text="${item.id}"></td>
+<!--                    <td id="itemId" th:text="${data.get('id')}"></td>-->
+                    <td id="itemName" th:text="${item.itemName}"></td>
+<!--                    <td id="itemName" th:text="${data.get('itemName')}"></td>-->
                     <td>
-                        <img id="itemSrc" th:src="@{${data.get('itemSrc')}}" alt="img"/>
+                        <img id="itemSrc" th:src="@{${item.itemSrc}}" alt="img"/>
                     </td>
-                    <td id="itemPrice" th:text="${data.get('itemPrice')}" ></td>
+                    <td id="itemPrice" th:text="${item.itemPrice}" ></td>
                     <td>
-                        <input id="quantity" type="number" th:text="${data.get('quantity')}" value="1"/>
+                        <input id="quantity" type="number" value="1"/>
                     </td>
                 </tr>
             </table>

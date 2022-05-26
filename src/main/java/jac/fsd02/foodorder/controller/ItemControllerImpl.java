@@ -27,15 +27,15 @@ public class ItemControllerImpl implements ItemController {
     @GetMapping("/queryItem/{itemId}")
     public String getItemById(@PathVariable(value = "itemId") Long itemId, Model model) {
         Item item = itemService.getItemById(itemId);
-        ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> data = mapper.convertValue(item, Map.class);
-
-        for (Map.Entry<String, Object> entry: data.entrySet()){
-            System.out.println("key="+entry.getKey()+", value="+entry.getValue());
-            System.out.println("-------------------------");
-        }
-        model.addAttribute("data", data);
-        model.addAttribute("cart", new Cart());
+//        ObjectMapper mapper = new ObjectMapper();
+//        Map<String, Object> data = mapper.convertValue(item, Map.class);
+//
+//        for (Map.Entry<String, Object> entry: data.entrySet()){
+//            System.out.println("key="+entry.getKey()+", value="+entry.getValue());
+//            System.out.println("-------------------------");
+//        }
+        model.addAttribute("item", item);
+//        model.addAttribute("cart", new Cart());
         return "item";
     }
 
