@@ -2,13 +2,18 @@ package jac.fsd02.foodorder.model;
 
 import lombok.*;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="tbl_payment")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
 public class Payment {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
     private Long id;
     private Long userId;
     private Long orderId;
