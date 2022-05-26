@@ -19,13 +19,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
     private Long id;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="payment_Id")
-    private Payment payment;
-    @ManyToOne
-    @JoinColumn(name = "user_Id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private User user;
+
+    private Long paymentId;
+    private Long userId;
     private Double itemTotalPrice;
     private Double tax;
     private Double shippingFee;
