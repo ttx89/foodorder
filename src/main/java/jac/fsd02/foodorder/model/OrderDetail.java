@@ -27,6 +27,4 @@ public class OrderDetail {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Order order;
     private Integer quantity;
-    private Double discount;
-
 }
