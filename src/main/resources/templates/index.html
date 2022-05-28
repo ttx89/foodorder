@@ -9,42 +9,51 @@
     <link href="css/project.css" rel="stylesheet" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" th:href="@{/css/footerindex.css}" href="../../css/footerindex.css" /> <!--footer link for css-->
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="../../css/header.css" /> <!--header link for css-->
+    <script src="https://kit.fontawesome.com/3f829efc5a.js" crossorigin="anonymous"></script> <!--icons in footer-->
 </head>
+
 <body>
-<div class="container text-center">
-    <h3><a th:href="@{/userIndex}">userIndex</a></h3>
-    <h3><a th:href="@{/register}">Register</a></h3>
-    <h3><a th:href="@{/login}">Login</a></h3>
-</div>
 <main class="container">
-    <header class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <img src="images/logoSm.png" alt="logo" class="img-fluid text-center">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="text-center" id="navbarSearchContent">
-                    <form class="d-flex ">
-                        <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-                <div class="text-right" id="navbarSupportedContent">
+    <div th:replace="fragments/header :: header"/>
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Cart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sign in</a>
-                        </li>
+<!--<div class="container text-center">-->
+<!--    <h3><a th:href="@{/userIndex}">userIndex</a></h3>-->
+<!--    <h3><a th:href="@{/register}">Register</a></h3>-->
+<!--    <h3><a th:href="@{/login}">Login</a></h3>-->
+<!--</div>-->
+<!--<main class="container">-->
+<!--    <header class="row">-->
+<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--            <div class="container-fluid">-->
+<!--                <img src="images/logoSm.png" alt="logo" class="img-fluid text-center">-->
+<!--                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                    <span class="navbar-toggler-icon"></span>-->
+<!--                </button>-->
+<!--                <div class="text-center" id="navbarSearchContent">-->
+<!--                    <form class="d-flex ">-->
+<!--                        <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">-->
+<!--                        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="text-right" id="navbarSupportedContent">-->
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<!--                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link active" aria-current="page" href="#">Cart</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="#">Sign in</a>-->
+<!--                        </li>-->
+
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--    </header>-->
 
 
 
@@ -197,50 +206,125 @@
         </section><!-- End Menu Section -->
 
 
-        <section class="row bottem">
-            <div class="col-sm-12 col-md-4 text-center">
-                <div class="thumbnail">
-                    <img src="images/logoSm.png" alt="logo" class="img-fluid text-center">
-                    <div class="caption">
-                        <p>80 RUE DAAS MONTREAL QUEBEC
-                            1518 - 200 - 30000
-                            contact@eatnow.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 text-center">
-                <div class="thumbnail">
-                    <h5>Explore Site</h5>
-                    <div class="caption">
-                        <a  class="linkbottem" href="#">Home</a>
-                    </div>
-                    <div class="caption">
-                        <a  class="linkbottem" href="#menu">Menu</a>
-                    </div>
-                    <div class="caption">
-                        <a  class="linkbottem" href="#">Order</a>
-                    </div>
-                    <div class="caption">
-                        <a  class="linkbottem" href="#about">About Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 text-center">
-                <div class="thumbnail">
-                    <h5>Newsletter</h5>
-                    <div class="caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <footer class="row">
-            <div class="col-12 text-center">copyright &copy; EAT NOW</div>
-        </footer>
+<!--        <section class="row bottem">-->
+<!--            <div class="col-sm-12 col-md-4 text-center">-->
+<!--                <div class="thumbnail">-->
+<!--                    <img src="images/logoSm.png" alt="logo" class="img-fluid text-center">-->
+<!--                    <div class="caption">-->
+<!--                        <p>80 RUE DAAS MONTREAL QUEBEC-->
+<!--                            1518 - 200 - 30000-->
+<!--                            contact@eatnow.com</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-12 col-md-4 text-center">-->
+<!--                <div class="thumbnail">-->
+<!--                    <h5>Explore Site</h5>-->
+<!--                    <div class="caption">-->
+<!--                        <a  class="linkbottem" href="#">Home</a>-->
+<!--                    </div>-->
+<!--                    <div class="caption">-->
+<!--                        <a  class="linkbottem" href="#menu">Menu</a>-->
+<!--                    </div>-->
+<!--                    <div class="caption">-->
+<!--                        <a  class="linkbottem" href="#">Order</a>-->
+<!--                    </div>-->
+<!--                    <div class="caption">-->
+<!--                        <a  class="linkbottem" href="#about">About Us</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-12 col-md-4 text-center">-->
+<!--                <div class="thumbnail">-->
+<!--                    <h5>Newsletter</h5>-->
+<!--                    <div class="caption">-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--        <footer class="row">-->
+<!--            <div class="col-12 text-center">copyright &copy; EAT NOW</div>-->
+<!--        </footer>-->
 
     </main>
 
+</main>
+<footer>
+    <div class="container wrap">
+        <div class="row">
+            <div class="column">
+                <div class="footer-widget about-widget">
+                    <h2 class="widget-title">About</h2>
+                    <p>Eat now order system</p>
+                    <div class="cards">
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-cc-paypal"></i>
+                        <!--                            <i class="fa-brands fa-cc-amex"></i>-->
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-discover"></i>
+                    </div>
+                    <p><span> <i class="fa-solid fa-lock"></i></span> Secure online payment</p>
+                </div>
+            </div>
 
+            <div class="column">
+                <div class="footer-widget categories-widget">
+                    <h2 class="widget-title">Categories</h2>
+                    <ul>
+                        <li><a href="#">Category1</a></li>
+                        <li><a href="#">Category2</a></li>
+                        <li><a href="#">Category3</a></li>
+                        <li><a href="#">Category4</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="footer-widget information-widget">
+                    <h2 class="widget-title">Information</h2>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping&Delivery</a></li>
+                        <li><a href="#">Private Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="footer-widget contact-widget">
+                    <h2 class="widget-title">Contact</h2>
+
+                    <div class="contact-address">
+                        <i class="fa-solid fa-location-dot"></i> Address: John Abbott, Montreal, Canada.
+                    </div>
+
+                    <div class="contact-number">
+                        <i class="fa-solid fa-square-phone"></i> Phone: +1 123456789
+                    </div>
+
+                    <div class="contact-email">
+                        <i class="fa-solid fa-envelope"></i> Email: eatnow@gmail.com
+                    </div>
+
+                    <div class="social-widget">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <p>Copyright @ 2022 All rights reserved | Design made with <i class="fa-solid fa-heart"></i> by WuzheQin zhaolongWang ZhenFang NanZhang TingtingXu</p>
+        </div>
+    </div>
+
+</footer>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
