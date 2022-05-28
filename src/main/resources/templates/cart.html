@@ -9,8 +9,17 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="../../css/footer.css" /> <!--footer link for css-->
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="../../css/header.css" /> <!--header link for css-->
+    <script src="https://kit.fontawesome.com/3f829efc5a.js" crossorigin="anonymous"></script> <!--icons in footer-->
+
 </head>
 <body>
+<div th:replace="fragments/header :: header"/>
 <div class="container my-2">
     <h3>Cart List</h3>
     <div>
@@ -106,7 +115,7 @@
   3, remove data from cart               //cartService.removeCartItemsByUserId()
   4, goto payment page                   //redirect to payment.html
 -->
-
+<div th:replace="fragments/footer :: footer"/>
 </body>
 
 

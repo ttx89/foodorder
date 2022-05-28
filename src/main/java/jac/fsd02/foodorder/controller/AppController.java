@@ -22,7 +22,7 @@ public class AppController {
     }
 
 
-    @GetMapping("/index2")
+    @GetMapping("/index")
     public String viewHomePage() {
         return "index";
     }
@@ -47,9 +47,14 @@ public class AppController {
 
     @GetMapping("/users")
     public String listUsers(Model model) {
-        List<User> listUsers = userRepo.findAll();
+        List<User> listUsers = (List<User>) userRepo.findAll();
         model.addAttribute("listUsers", listUsers);
 
         return "users";
+    }
+
+    @GetMapping("/403")
+    public String error403() {
+        return "403";
     }
 }

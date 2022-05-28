@@ -46,16 +46,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/itemList").authenticated()
-                .anyRequest().permitAll()
+                .antMatchers("/index", "/register", "/css/**", "/js/**", "/webjars/**", "/images/**", "/img/**", "/process_register", "/register_success").permitAll()
+                .antMatchers("/admin", "/itemList", "/city", "/save", "/showFormForUpdate/**", "/addNew", "/delete", "/toPhoto/upload","/users").hasAuthority("ADMIN")
+                .antMatchers("/userIndex","/addCart","/cart").hasAuthority("USER")
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .usernameParameter("email")
-                .defaultSuccessUrl("/itemList")
+                .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll()
                 .and()
+                .exceptionHandling().accessDeniedPage("/403")
+                .and()
                 .csrf().disable();
+        ;
+//                .antMatchers("/userIndex").authenticated()
+//                .anyRequest().permitAll()
+//                .and()
+//                .formLogin()
+//                .usernameParameter("email")
+//                .defaultSuccessUrl("/userIndex")
+//                .permitAll()
+//                .and()
+//                .logout().logoutSuccessUrl("/").permitAll()
+//                .and()
+//                .csrf().disable();
+
     }
 }

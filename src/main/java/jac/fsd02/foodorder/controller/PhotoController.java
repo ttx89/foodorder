@@ -32,7 +32,7 @@ public class PhotoController {
         //文件名称            1970到现在的毫秒数           文件名称
         String fileName = System.currentTimeMillis()+file.getOriginalFilename();
         //文件绝对路径
-        String filePath = "D:/foodorder/src/main/resources/static/img/";
+        String filePath = "src\\main\\resources\\static\\img\\";
         if (jsonObject.isEmpty()){//判断是否上传
             jsonObject.put("success","0");//失败输出0
             jsonObject.put("fileName","");
