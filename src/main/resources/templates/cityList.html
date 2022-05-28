@@ -11,6 +11,12 @@
 </head>
 <body>
 <div class="container my-2">
+    <div class="btn-group">
+        <a th:href="@{/}" class="btn btn-primary">Home</a>
+        <a th:href="@{/admin}" class="btn btn-primary " >Category</a>
+        <a th:href="@{/itemList}" class="btn btn-primary">Item</a>
+        <a th:href="@{/city}" class="btn btn-primary active" aria-current="page">City</a>
+    </div>
     <h3>City List</h3>
     <a th:href="@{/addNewCity}" class="btn btn-info btn-sm mb-3">Add New City</a>
     <table style="width:80%" class="table table-primary table-responsive-md">

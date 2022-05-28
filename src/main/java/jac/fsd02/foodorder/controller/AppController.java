@@ -22,7 +22,7 @@ public class AppController {
     }
 
 
-    @GetMapping("/index2")
+    @GetMapping("/index")
     public String viewHomePage() {
         return "index";
     }

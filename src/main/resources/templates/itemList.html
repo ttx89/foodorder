@@ -12,16 +12,15 @@
 </head>
 <body>
 <div class="container my-2">
+    <div class="btn-group">
+        <a th:href="@{/}" class="btn btn-primary">Home</a>
+        <a th:href="@{/admin}" class="btn btn-primary " >Category</a>
+        <a th:href="@{/itemList}" class="btn btn-primary active" aria-current="page">Item</a>
+        <a th:href="@{/city}" class="btn btn-primary " >City</a>
+    </div>
     <h3>Item List</h3>
     <a th:href="@{/addNewItem}" class="btn btn-info btn-sm mb-3">Add New Item</a>
-    <div>
-        <form th:action="@{/logout}" method="post">
-            <p>
-                Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-            </p>
-            <input type="submit" value="Sign Out" />
-        </form>
-    </div>
+
     <table style="width:80%" class="table table-primary table-responsive-md">
         <thead>
         <tr>

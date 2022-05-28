@@ -17,7 +17,15 @@
 <body>
 
 <div class="container" my-2>
-    <h3>HOME</h3>
+    <h3 ><a th:href="@{/}" class="btn btn-primary">Home</a></h3>
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
     <table style="..." class="table table-striped table-responsive-md"  >
         <thead>
         <tr>
@@ -75,13 +83,14 @@
                 $. each (data, function (index, element) {
                     str = str +
                         "<tr>" +
-                            "<td>"+element.id+"</td>" +
-                            "<td>"+element.category.categoryName+"</td>" +
+                            // "<td>"+element.id+"</td>" +
+                            // "<td>"+element.category.categoryName+"</td>" +
                             "<td>"+element.itemName+"</td>" +
-                            "<td>"+element.itemPrice+"</td>" +
                             "<td><img src='"+element.itemSrc+"'width=\"100\" height=\"100\"/></td>" +
+                            "<td>"+element.itemPrice+"</td>" +
+
                             "<td>"+element.description+"</td>" +
-                            "<td>"+element.active+"</td>" +
+                            // "<td>"+element.active+"</td>" +
                             "<td>"+"<a href=/queryItem/"+element.id+">Order Now</a>" + "</td>"+
                             // "<td>"+"<a href=/queryItem/"+element.id+">Order Now</a>" + "</td>"+
                         "</tr>"
