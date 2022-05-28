@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+<div th:replace="fragments/header :: header"/>
 <div class="container" my-2>
     <h3 ><a th:href="@{/}" class="btn btn-primary">Home</a></h3>
     <div>
@@ -121,6 +121,7 @@
     // <a th:href="/queryItem/{itemId}(id=${element.id})" className="btn btn-primary">Update</a>
 
 </script>
+<div th:replace="fragments/footer :: footer"/>
 </html>
 
 <style>
