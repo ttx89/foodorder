@@ -40,22 +40,23 @@ public class CartControllerImpl implements CartController{
         ArrayList<Cart> cartList = (ArrayList<Cart>) cartService.getCartListByUserId(userId);
         Double itemTotalPrice = cartService.getTotalOrderPrice(userId);
 
-        CartListForm cartListForm = new CartListForm();
-        cartListForm.setCartList(cartList);
-        cartListForm.setItemTotalPrice(itemTotalPrice);
-
         Double shippingFee = 5.55;//todo: query shipping fee
-        cartListForm.setShippingFee(shippingFee);
-
-        double amountBeforeTax = itemTotalPrice + shippingFee;
-        double taxAmount = BigDecimal.valueOf(amountBeforeTax)
+        Double amountBeforeTax = itemTotalPrice + shippingFee;
+        Double taxAmount = BigDecimal.valueOf(amountBeforeTax)
                 .multiply(BigDecimal.valueOf(Constants.TAX_RATE))
                 .setScale(2,  RoundingMode.HALF_UP)
                 .doubleValue();
+        Double orderTotalPrice = BigDecimal.valueOf(amountBeforeTax)
+                .add(BigDecimal.valueOf(taxAmount))
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
 
-
+        CartListForm cartListForm = new CartListForm();
+        cartListForm.setCartList(cartList);
+        cartListForm.setItemTotalPrice(itemTotalPrice);
+        cartListForm.setShippingFee(shippingFee);
         cartListForm.setTax(taxAmount) ;
-        cartListForm.setOrderTotalPrice(amountBeforeTax + taxAmount);
+        cartListForm.setOrderTotalPrice(orderTotalPrice);
 
         model.addAttribute("cartListForm",cartListForm);
         return "cart"; //this is a website!

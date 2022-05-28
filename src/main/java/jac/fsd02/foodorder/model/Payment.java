@@ -15,9 +15,17 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//it means auto increment id for the table
     private Long id;
+
     private Long userId;
     private Long orderId;
     private Integer transactionNum;
     private PaymentStatus paymentStatus;
     private PaymentType paymentType;
+
+    private String receiverName;
+    private String receiverAddress;
+    private String receiverPostcode;
+    private String bankCardNum;
+    private String bankCardExpDate;
+    private String bankCardCVV;
 }
