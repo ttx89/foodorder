@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Builder
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//it means auto increment id for the table
     private Long id;
     private Long userId;
     private Long orderId;
