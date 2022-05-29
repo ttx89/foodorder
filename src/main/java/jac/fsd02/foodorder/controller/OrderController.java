@@ -47,7 +47,7 @@ public class OrderController {
     public String saveOrder(@Valid @ModelAttribute("order") Order addOrder, BindingResult result){
         //if I have validation issues
         if (result.hasErrors()){
-            //I need to stay in the current page !!!!
+//            I need to stay in the current page !!!!
             return "addOrUpdate-order";
         }
         orderService.saveOrUpdateOrder(addOrder);
@@ -68,7 +68,8 @@ public class OrderController {
     public String deleteThroughId(@PathVariable(value = "id") long id){
         //here we call db/service to delete the object
         orderService.deleteOrder(id);
-        return "orders";
+//        return "orders";
+        return "redirect:/order";
     }
 
     //add of
