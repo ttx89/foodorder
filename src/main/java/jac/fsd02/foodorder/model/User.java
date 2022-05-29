@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Builder
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//it means auto increment id for the table
     private Long id;
     private String name;
     @Column(nullable = false, unique = true, length = 45)
@@ -24,6 +24,7 @@ public class User {
     @JoinColumn(name="city_Id")
     private City city;
     private String address;
+    @Column(nullable = false, unique = true, length = 30)
     private String userName;
     @Column(nullable = false, length = 64)
     private String password;

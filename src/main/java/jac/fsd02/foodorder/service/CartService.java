@@ -8,5 +8,12 @@ public interface CartService {
 
     Cart addItemToCart(Cart cart);
 
-    List<Cart> getCartListByUserId();
+    List<Cart> getCartListByUserId(Long userId);
+
+    Double getTotalOrderPrice(Long userId);
+
+    void deleteCartById(Long cartId );
+
+    void deleteItemsByUserId(Long userId);
+
 }

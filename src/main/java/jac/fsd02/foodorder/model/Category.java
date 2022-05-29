@@ -18,7 +18,7 @@ import static jac.fsd02.foodorder.constant.ErrorMessage.NAME_SIZE_ERROR_MESSAGE;
 @Builder
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//it means auto increment id for the table
     private Long id;
     @NotEmpty(message = NAME_IS_REQUIRED_ERROR_MESSAGE)
     @Size(min=2, message = NAME_SIZE_ERROR_MESSAGE)

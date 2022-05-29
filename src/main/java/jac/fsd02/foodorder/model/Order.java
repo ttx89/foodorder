@@ -1,10 +1,7 @@
 package jac.fsd02.foodorder.model;
 
 
-
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +14,7 @@ import java.util.Date;
 @Builder
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//it means auto increment id for the table
     private Long id;
 
     private Long paymentId;
@@ -27,6 +24,5 @@ public class Order {
     private Double shippingFee;
     private Double orderTotalPrice;
     private Date orderDate;
-
     private OrderStatus orderStatus;
 }

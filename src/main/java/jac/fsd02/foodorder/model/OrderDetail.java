@@ -2,8 +2,6 @@ package jac.fsd02.foodorder.model;
 
 
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -16,15 +14,18 @@ import javax.persistence.*;
 @Builder
 public class OrderDetail {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//it means auto increment id for the table
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//it means auto increment id for the table
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "item_Id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Item item;
-    @ManyToOne
-    @JoinColumn(name = "order_Id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Order order;
+//    @ManyToOne
+//    @JoinColumn(name = "item_Id", nullable = false)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Long itemId;
+//    @ManyToOne
+//    @JoinColumn(name = "order_Id", nullable = false)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Long orderId;
+
+    private Double price;
+
     private Integer quantity;
 }
