@@ -58,11 +58,7 @@ public class PaymentController {
             return "payment";
         }
 
-        System.out.println("##########paymentToSave="+paymentToSave.toString());
-
         Payment payment = paymentService.savePayment(paymentToSave);
-
-        System.out.println("##########payment="+payment.toString());
         try{
             orderService.updatePaymentInfo(payment.getOrderId(), payment.getId());
         } catch (RecordNotFoundException e) {
