@@ -56,8 +56,7 @@ public class OrderController {
     }
     @GetMapping("/showFormForUpdateOrder/{id}")
     public String updateForm(@PathVariable(value = "id") long id, Model model)throws RecordNotFoundException {
-        //now model needs to be populated with the information that comes from db
-        //you have your id-> so you can fetch information from database
+
 //        model.addAttribute("userCity", adminCityService.getCityList());
         Order orderFromDb = orderService.getOrderById(id);
         model.addAttribute("order", orderFromDb);
