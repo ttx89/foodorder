@@ -4,11 +4,14 @@ import jac.fsd02.foodorder.model.User;
 import jac.fsd02.foodorder.repository.UserRepository;
 import jac.fsd02.foodorder.service.AdminCityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 @Controller
@@ -25,6 +28,20 @@ public class AppController {
     @GetMapping("/index")
     public String viewHomePage() {
         return "index";
+    }
+
+    @RequestMapping(value="/qufen")
+    public String qufen(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(auth.getAuthorities().toString().equals("[USER]"))
+            return "redirect:/userIndex";//如果是客户登录
+        else
+            return "redirect:/admin";//如果是后台管理人员登录
+    }
+
+    @GetMapping("/admin")
+    public String viewAdminHomePage() {
+        return "homeadmin";
     }
 
     @GetMapping("/register")
