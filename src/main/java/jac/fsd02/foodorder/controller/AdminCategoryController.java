@@ -19,12 +19,13 @@ public class AdminCategoryController {
     public AdminCategoryController(AdminCategoryService adminCategoryService){
         this.adminCategoryService = adminCategoryService;
     }
-    @GetMapping("/admin")
+    @GetMapping("/catogoryList")
     public String homePage(Model model){
         //it will call the db/service and fetches the data
         List<Category> categoryList = adminCategoryService.getCategoryList();
         model.addAttribute("allCategory",categoryList);
         return "catogoryList";
+//        return "homeadmin";
     }
 
     @GetMapping("/addNew")
