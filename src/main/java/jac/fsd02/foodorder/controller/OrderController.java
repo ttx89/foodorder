@@ -1,6 +1,7 @@
 package jac.fsd02.foodorder.controller;
 
 import jac.fsd02.foodorder.model.CartListForm;
+import jac.fsd02.foodorder.model.Order;
 import jac.fsd02.foodorder.model.Payment;
 import jac.fsd02.foodorder.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,12 @@ public class OrderController {
     public String createOrder(@ModelAttribute("cartListForm") CartListForm cartListForm, Model model){
 //        cartList = (ArrayList<Cart>)model.getAttribute("result");
         System.out.println(cartListForm.toString());
-        orderService.createOrder(cartListForm);
+        Order order = orderService.createOrder(cartListForm);
 
-        model.addAttribute("payment", new Payment());
+        Payment payment = new Payment();
+        payment.setOrderId(order.getId());
+
+        model.addAttribute("payment", payment);
         model.addAttribute("orderTotalPrice", cartListForm.getOrderTotalPrice());
         return "payment";
     }

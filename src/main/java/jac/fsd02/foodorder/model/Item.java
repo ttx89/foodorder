@@ -29,9 +29,6 @@ public class Item {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Category category;
 
-//    private Long categoryId;   //测试修改
-
-
     @NotEmpty(message = NAME_IS_REQUIRED_ERROR_MESSAGE)
     @Size(min=2, message = NAME_SIZE_ERROR_MESSAGE)
     private String itemName;

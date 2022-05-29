@@ -14,12 +14,14 @@ import java.util.Optional;
 public class CartServiceImpl implements CartService {
 
     @Autowired
+    SessionService sessionService;
+
+    @Autowired
     CartRepository cartRepository;
-    
 
     @Override
     public Cart addItemToCart(Cart cart) {
-        Long userId = cart.getUserId();
+        Long userId = sessionService.getUserIdFromSession();
         Long itemId = cart.getItemId();
         Optional<Cart> optCart = cartRepository.findByUserIdAndItemId(userId, itemId);
 

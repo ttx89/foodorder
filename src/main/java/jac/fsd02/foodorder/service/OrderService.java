@@ -1,6 +1,7 @@
 package jac.fsd02.foodorder.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jac.fsd02.foodorder.exception.RecordNotFoundException;
 import jac.fsd02.foodorder.model.*;
 import jac.fsd02.foodorder.repository.CartRepository;
 import jac.fsd02.foodorder.repository.OrderDetailRepository;
@@ -11,9 +12,13 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
+
+    @Autowired
+    SessionService sessionService;
 
     @Autowired
     CartRepository cartRepository;
@@ -36,7 +41,7 @@ public class OrderService {
 
         //insert into tbl_order
         Order order = new Order();
-        order.setUserId(cartList.get(0).getUserId());
+        order.setUserId(sessionService.getUserIdFromSession());
         order.setItemTotalPrice(cartListForm.getItemTotalPrice());
         order.setTax(cartListForm.getTax());
         order.setShippingFee(cartListForm.getShippingFee());
@@ -63,6 +68,17 @@ public class OrderService {
         }
 
         return savedOrder;
+    }
+
+    public Order updatePaymentInfo(Long orderId, Long paymentId) throws RecordNotFoundException {
+        Optional<Order> optOrder = orderRespository.findById(orderId);
+        if (optOrder.isPresent()){
+            Order order = optOrder.get();
+            order.setOrderStatus(OrderStatus.PAID);
+            order.setPaymentId(paymentId);
+            return orderRespository.save(order);
+        }
+        throw new RecordNotFoundException("Order info not found");
     }
 
 }

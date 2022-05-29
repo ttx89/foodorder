@@ -4,6 +4,7 @@ import jac.fsd02.foodorder.constant.Constants;
 import jac.fsd02.foodorder.model.Cart;
 import jac.fsd02.foodorder.model.CartListForm;
 import jac.fsd02.foodorder.service.CartService;
+import jac.fsd02.foodorder.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,13 +21,15 @@ import java.util.ArrayList;
 public class CartControllerImpl implements CartController{
 
     @Autowired
+    SessionService sessionService;
+    @Autowired
     CartService cartService;
 
     @Override
     @ResponseBody
     @PostMapping("/addCart")
     public String addItemToCart(Cart cart) {
-        Long userId = 2L; //TODO: get userId from session
+        Long userId = sessionService.getUserIdFromSession();
         cart.setUserId(userId);
 
         cartService.addItemToCart(cart);
@@ -36,7 +39,7 @@ public class CartControllerImpl implements CartController{
     @Override
     @GetMapping("/cart")
     public String getCartListByUser(Long userid, Model model) {
-        Long userId = 2L; //TODO: get userId from session
+        Long userId = sessionService.getUserIdFromSession();
         ArrayList<Cart> cartList = (ArrayList<Cart>) cartService.getCartListByUserId(userId);
         Double itemTotalPrice = cartService.getTotalOrderPrice(userId);
 
@@ -70,8 +73,7 @@ public class CartControllerImpl implements CartController{
     }
 
     public void deleteCartListByUser(Long userid){
-
-        Long userId = 2L;
+        Long userId = sessionService.getUserIdFromSession();
         cartService.getCartListByUserId(userId);
     }
 }

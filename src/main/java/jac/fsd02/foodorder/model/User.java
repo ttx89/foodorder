@@ -24,6 +24,7 @@ public class User {
     @JoinColumn(name="city_Id")
     private City city;
     private String address;
+    @Column(nullable = false, unique = true, length = 30)
     private String userName;
     @Column(nullable = false, length = 64)
     private String password;

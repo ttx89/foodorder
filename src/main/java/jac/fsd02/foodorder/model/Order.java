@@ -17,16 +17,12 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//it means auto increment id for the table
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "payment_id")
-    private Payment payment;
-
+    private Long paymentId;
     private Long userId;
     private Double itemTotalPrice;
     private Double tax;
     private Double shippingFee;
     private Double orderTotalPrice;
     private Date orderDate;
-
     private OrderStatus orderStatus;
 }

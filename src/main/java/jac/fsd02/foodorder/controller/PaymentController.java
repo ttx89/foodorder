@@ -1,7 +1,8 @@
 package jac.fsd02.foodorder.controller;
 
+import jac.fsd02.foodorder.exception.RecordNotFoundException;
 import jac.fsd02.foodorder.model.Payment;
-import jac.fsd02.foodorder.service.CartService;
+import jac.fsd02.foodorder.service.OrderService;
 import jac.fsd02.foodorder.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ public class PaymentController {
     @Autowired
     PaymentService paymentService;
     @Autowired
-    CartService cartService;
+    OrderService orderService;
 
     public PaymentController(PaymentService paymentService) {
         this.paymentService = paymentService;
@@ -57,9 +58,17 @@ public class PaymentController {
             return "payment";
         }
 
-        paymentService.savePayment(paymentToSave);
+        System.out.println("##########paymentToSave="+paymentToSave.toString());
 
-//        cartService.deleteAllCarts();
+        Payment payment = paymentService.savePayment(paymentToSave);
+
+        System.out.println("##########payment="+payment.toString());
+        try{
+            orderService.updatePaymentInfo(payment.getOrderId(), payment.getId());
+        } catch (RecordNotFoundException e) {
+            return "500";
+        }
+
 
         return "paymentCompleted";
     }

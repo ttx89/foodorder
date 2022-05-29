@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
+
     private User user;
 
     public CustomUserDetails(User user) {
@@ -32,7 +33,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return user.getUserName();
     }
 
     @Override
@@ -57,6 +58,10 @@ public class CustomUserDetails implements UserDetails {
 
     public String getFullName() {
         return user.getName() + " " + user.getUserName();
+    }
+
+    public Long getId(){
+        return user.getId();
     }
 
 }

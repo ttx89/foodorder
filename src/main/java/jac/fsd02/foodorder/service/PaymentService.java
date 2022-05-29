@@ -14,11 +14,11 @@ import java.util.Optional;
 public class PaymentService {
 
     @Autowired
-    PaymentRepository repository;
+    PaymentRepository paymentRepository;
 
 
     public List<Payment> getPaymentList() {
-        return (List<Payment>) repository.findAll();
+        return (List<Payment>) paymentRepository.findAll();
     }
 
 //    public double getAvg() {
@@ -38,7 +38,7 @@ public class PaymentService {
 //    }
 
     public Payment getPaymentById(long id) throws RecordNotFoundException {
-        Optional<Payment> paym = repository.findById(id);
+        Optional<Payment> paym = paymentRepository.findById(id);
         if (paym.isPresent()) {
             return paym.get();
         } else {
@@ -48,11 +48,11 @@ public class PaymentService {
 
     public Payment savePayment(Payment payment) {
 
-        return repository.save(payment);
+        return paymentRepository.save(payment);
     }
 
 
     public void deletePayment(long id) {
-        repository.deleteById(id);
+        paymentRepository.deleteById(id);
     }
 }

@@ -120,7 +120,8 @@
                     <div class="col-6 mt-3 mb-3">
                     <h5>Payment Total</h5>
                     <div class="d-flex justify-content-between mt-4 ">
-                        <p th:text="${orderTotalPrice} / 100 * 100"></p>
+                        <input type="hidden" th:field="${payment.orderId}" th:value="${payment.orderId}" readonly="readonly">
+                        <p th:text="${orderTotalPrice}"></p>
                     </div>
                     <button type="submit" class="btn btn-primary">Pay</button>
                     </div>
