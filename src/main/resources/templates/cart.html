@@ -96,8 +96,8 @@
 
         </table>
 
-        <button type="submit" class="btn btn-info col-2">Go to checkout</button>
-
+<!--        <button type="submit" class="btn btn-info col-2">Go to checkout</button>-->
+        <button type="submit" class="btn btn-info col-2"  th:disabled ="${cartListForm.cartList.size() eq 0}">Go to checkout</button>
     </form>
 
 

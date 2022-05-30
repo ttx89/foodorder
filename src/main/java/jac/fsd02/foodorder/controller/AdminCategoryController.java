@@ -51,7 +51,7 @@ public class AdminCategoryController {
 
         adminCategoryService.saveOrUpdateCategory(addCategory);
 
-        return "redirect:/admin";
+        return "redirect:/catogoryList";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
@@ -67,6 +67,6 @@ public class AdminCategoryController {
     public String deleteThroughId(@PathVariable(value = "id") long id){
         //here we call db/service to delete the object
         adminCategoryService.deleteCategory(id);
-        return "redirect:/admin";
+        return "redirect:/catogoryList";
     }
 }
