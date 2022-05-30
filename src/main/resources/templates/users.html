@@ -71,5 +71,9 @@
 	</div>
 </div>
 </div>
+<div th:replace="fragments/footer :: footer"/>
+<th:block th:replace="fragments/scripts :: common"></th:block>
+<th:block th:replace="fragments/scripts :: datatable"></th:block>
+<script th:src="@{/js/category/form.js}"></script>
 </body>
 </html>

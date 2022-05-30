@@ -68,7 +68,8 @@ public class OrderController {
     public String deleteThroughId(@PathVariable(value = "id") long id){
         //here we call db/service to delete the object
         orderService.deleteOrder(id);
-        return "orders";
+//        return "orders";
+        return "redirect:/order";
     }
 
     //add of

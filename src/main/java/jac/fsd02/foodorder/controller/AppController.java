@@ -36,13 +36,13 @@ public class AppController {
         if(auth.getAuthorities().toString().equals("[USER]"))
             return "redirect:/userIndex";//如果是客户登录
         else
-            return "redirect:/admin";//如果是后台管理人员登录
+            return "redirect:/catogoryList";//如果是后台管理人员登录
     }
 
-    @GetMapping("/admin")
-    public String viewAdminHomePage() {
-        return "homeadmin";
-    }
+//    @GetMapping("/admin")
+//    public String viewAdminHomePage() {
+//        return "homeadmin";
+//    }
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
