@@ -49,7 +49,7 @@
 					<th>Tax</th>
 					<th>Shipping Fee</th>
 					<th>Order Total Price</th>
-<!--					<th>Order Date</th>-->
+					<th>Order Date</th>
 					<th>Status</th>
 					<th>Action</th>
 				</tr>
@@ -61,7 +61,7 @@
 					<td th:text="${order.tax}"></td>
 					<td th:text="${order.shippingFee}"></td>
 					<td th:text="${order.orderTotalPrice}"></td>
-<!--					<td th:text="${order.orderDate}"></td>-->
+					<td th:text="${order.orderDate}"></td>
 					<td th:text="${order.orderStatus}"></td>
 					<td>
 						<a th:href="@{/showFormForUpdateOrder/{id}(id=${order.id})}" class="btn btn-primary">Update</a>
@@ -77,8 +77,5 @@
 	</div>
 </div>
 </div>
-<th:block th:replace="fragments/scripts :: common"></th:block>
-<th:block th:replace="fragments/scripts :: datatable"></th:block>
-<script th:src="@{/js/category/form.js}"></script>
 </body>
 </html>

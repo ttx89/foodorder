@@ -47,7 +47,7 @@ public class OrderController {
     public String saveOrder(@Valid @ModelAttribute("order") Order addOrder, BindingResult result){
         //if I have validation issues
         if (result.hasErrors()){
-//            I need to stay in the current page !!!!
+            //I need to stay in the current page !!!!
             return "addOrUpdate-order";
         }
         orderService.saveOrUpdateOrder(addOrder);
@@ -56,7 +56,8 @@ public class OrderController {
     }
     @GetMapping("/showFormForUpdateOrder/{id}")
     public String updateForm(@PathVariable(value = "id") long id, Model model)throws RecordNotFoundException {
-
+        //now model needs to be populated with the information that comes from db
+        //you have your id-> so you can fetch information from database
 //        model.addAttribute("userCity", adminCityService.getCityList());
         Order orderFromDb = orderService.getOrderById(id);
         model.addAttribute("order", orderFromDb);
@@ -67,8 +68,7 @@ public class OrderController {
     public String deleteThroughId(@PathVariable(value = "id") long id){
         //here we call db/service to delete the object
         orderService.deleteOrder(id);
-//        return "orders";
-        return "redirect:/order";
+        return "orders";
     }
 
     //add of
