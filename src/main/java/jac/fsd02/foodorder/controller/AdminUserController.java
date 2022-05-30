@@ -68,6 +68,6 @@ public class AdminUserController {
     public String deleteThroughId(@PathVariable(value = "id") long id){
         //here we call db/service to delete the object
         userService.deleteUser(id);
-        return "redirect:/users";
+        return "redirect:/user";
     }
 }
