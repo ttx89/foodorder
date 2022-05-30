@@ -19,10 +19,10 @@
             <img class="logo" src="../../images/logoSm.png" alt="logo">
             <nav>
                 <ul class="nav_links">
-                    <li><a th:href="@{/index}">Home</a></li>
-                    <li><a th:href="@{/cart}">Cart</a></li>
-                    <li><a th:href="@{/register}">Register</a></li>
-<!--                    <li><a th:href="@{/admin}">Admin</a></li>-->
+                    <li><a th:href="@{/index}"><h3>Home</h3></a></li>
+                    <li><a th:href="@{/userIndex}"><h3>Menu</h3></a></li>
+                    <li><a th:href="@{/cart}"><h3>Cart</h3></a></li>
+                    <li><a th:href="@{/register}"><h3>Register</h3></a></li>
                 </ul>
             </nav>
             <div th:if="${#authorization.expression('!isAuthenticated()')}">
