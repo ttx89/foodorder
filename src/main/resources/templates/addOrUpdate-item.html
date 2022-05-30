@@ -35,9 +35,10 @@
         <input type="text" th:field="*{itemName}" placeholder="Enter Item Name" class="form-control mb-3 col-3"/>
         <p th:if="${#fields.hasErrors('itemName')}" th:errorclass="error" th:errors="*{itemName}"></p>
 
-        <select th:field="*{category}" class="form-control">
+        <select th:field="*{category}" class="form-control mb-3 col-3">
             <option th:each="category: ${itemCategory}" th:value="${category.id}" th:text="${category.categoryName}"></option>
         </select>
+        <p th:if="${#fields.hasErrors('category')}" th:errorclass="error" th:errors="*{category}"></p>
 
         <input type="text" th:field="*{itemPrice}" placeholder="Enter Item Price" class="form-control mb-3 col-3">
         <p th:if="${#fields.hasErrors('itemPrice')}" th:errorclass="error" th:errors="*{itemPrice}"></p>
