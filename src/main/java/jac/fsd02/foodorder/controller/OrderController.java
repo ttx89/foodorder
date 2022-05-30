@@ -73,7 +73,7 @@ public class OrderController {
     }
 
     //add of
-    @GetMapping("/checkout")
+    @PostMapping("/checkout")
     public String createOrder(@ModelAttribute("cartListForm") CartListForm cartListForm, Model model){
 //        cartList = (ArrayList<Cart>)model.getAttribute("result");
         System.out.println(cartListForm.toString());
