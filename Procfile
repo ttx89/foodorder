@@ -1,1 +1,1 @@
-web: java -jar target/food_order-1.0.jar
+web: java -jar target/foodorder-1.0.jar
